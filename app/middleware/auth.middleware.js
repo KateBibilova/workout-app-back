@@ -24,12 +24,12 @@ export const protect = asyncHandler(async (req, res, next) => {
 			next()
 		} else {
 			res.status(401)
-			throw new Error('Not authorized, token failed')
+			throw new Error('Invalid token')
 		}
 	}
 
 	if (!token) {
 		res.status(401)
-		throw new Error('Not authorized, I do not have a token')
+		throw new Error('Unauthorized (no token)')
 	}
 })
